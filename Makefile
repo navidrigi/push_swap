@@ -1,18 +1,14 @@
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror #-fsanitize=address
-SRC_FILES	=	ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c \
-				ft_lstnew.c ft_lstsize.c ft_atoi.c final_moves.c \
-				push_swap.c push_to_list.c reverse_rotate.c rotate.c \
-				sort.c swap.c input_values_checking.c \
-				rotating_or_reverse_rotating.c ft_strcmp.c \
-				if_stack_is_sorted.c ft_isdigit.c indexing.c \
-				positioning.c cost_calculation.c
-OBJ_FILES 	=	$(SRC_FILES:.c=.o)
+SRC_FILES	=	$(wildcard *.c)
+OBJ_DIR     =   obj
+OBJ_FILES 	=	$(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 NAME		=	push_swap
 
 all: $(NAME)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: %.c
+	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJ_FILES)
@@ -26,5 +22,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rmdir $(OBJ_DIR)
 
 re: fclean all
