@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-static int	is_white(char c);
-
 long int	ft_atoi(char *str)
 {
 	int			sign;
@@ -21,7 +19,7 @@ long int	ft_atoi(char *str)
 
 	sign = 1;
 	result = 0;
-	while (is_white(*str))
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-')
 	{
@@ -36,12 +34,4 @@ long int	ft_atoi(char *str)
 		str++;
 	}
 	return (result * sign);
-}
-
-static int	is_white(char c)
-{
-	if (c == '\t' || c == '\n' || c == '\v' || c == '\f'
-		|| c == '\r' || c == ' ')
-		return (1);
-	return (0);
 }
