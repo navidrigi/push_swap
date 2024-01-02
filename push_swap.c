@@ -40,22 +40,22 @@ void	free_list(t_list **list)
 	*list = NULL;
 }
 
-// int	main(int argc, char **argv)
-// {
-// 	int		size_a;
-// 	t_list	*list1;
-// 	t_list	*list2;
+int	main(int argc, char **argv)
+{
+	int		size_a;
+	t_list	*list1;
+	t_list	*list2;
 
-// 	if (argc < 2)
-// 		return (1);
-// 	if (correct_input_checker(argv) == 0)
-// 		list_error(NULL, NULL);
-// 	list1 = populating_list_1st_time(argc, argv);
-// 	list2 = NULL;
-// 	size_a = ft_lstsize(list1);
-// 	indexing_process(list1, size_a + 1);
-// 	push_swap(&list1, &list2, size_a);
-// 	free_list(&list1);
-// 	free_list(&list2);
-// 	return (0);
-// }
+	if (argc < 2)
+		return (1);
+	if (correct_input_checker(argv) == 0)
+		list_error(NULL, NULL);
+	list1 = populating_list_1st_time(argc, argv);
+	list2 = NULL;
+	size_a = ft_lstsize(list1);
+	indexing_process(list1, size_a + 1);
+	push_swap(&list1, &list2, size_a);
+	free_list(&list1);
+	free_list(&list2);
+	return (0);
+}
